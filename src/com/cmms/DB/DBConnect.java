@@ -85,6 +85,8 @@ public class DBConnect {
         Connection conn;
         Class.forName("org.postgresql.Driver");
         String db_postgres_jdbc_test = "jdbc:postgresql://localhost:5432/MADB_PRODUCT_2558";
+
+
         // System.out.println(OS);
         byte[] user_decode = Base64.decodeBase64(USERNAME);
         byte[] pass_decode = Base64.decodeBase64(PASSWORD);
