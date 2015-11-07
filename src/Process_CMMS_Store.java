@@ -1,11 +1,10 @@
 /**
  * Created by beckp on 3/10/2558.
  */
-import com.cgc.Util.DateUtil;
-import com.cgc.Util.OS_Type;
-import com.cgc.Util.PeriodDate;
-import com.cgc.engine.Process_transaction_rawmat_friction_summary;
-import com.cgc.engine.Process_transaction_wh_summary;
+import com.cmms.Util.DateUtil;
+import com.cmms.Util.OS_Type;
+import com.cmms.Util.PeriodDate;
+import com.cmms.engine.Process_transaction;
 
 import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
@@ -23,15 +22,11 @@ public class Process_CMMS_Store {
     private static void Process_Transaction() {
         try {
 
-            System.out.println("Test 2");
-
-            Process_transaction_rawmat_friction_summary objTrans_raw = new Process_transaction_rawmat_friction_summary();
-            System.out.println("Test 3");
-            Process_transaction_wh_summary objTrans_wh = new Process_transaction_wh_summary();
-            System.out.println("Test 4");
+            Process_transaction objcom = new Process_transaction();
 
             String username = "System", process_for;
-            System.out.println("Test 5");
+
+
             Calendar c = Calendar.getInstance();
             SimpleDateFormat df = new SimpleDateFormat("dd-MM-yyyy");
 
@@ -69,13 +64,9 @@ public class Process_CMMS_Store {
 
             System.out.println("Start Process Date : " + new Timestamp(new java.util.Date().getTime()));
 
-            process_for = "RAWMAT_FRICTION";
+            process_for = "STORE";
 
-            objTrans_raw.main_check(date_from, date_to, username, process_for);
-
-            process_for = "WAREHOUSE";
-
-            objTrans_wh.main_check(date_from, date_to, username, process_for);
+            objcom.main_check(date_from, date_to);
 
             System.out.println("End Process Date : " + new Timestamp(new java.util.Date().getTime()));
 
