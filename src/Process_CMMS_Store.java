@@ -40,17 +40,12 @@ public class Process_CMMS_Store {
 
             System.out.println("Test 6" + current_month);
 
-            String date_from = period.Start_Current_Month(current_month);
+            //String date_from = period.Start_Current_Month(current_month);
 
-            //String date_from = "01-10-2558" ;
-
-            System.out.println("Test 7");
-
+            String date_from = period.Start_Year("S");
             String date_to = ObjDate.Return_Date_Now_full();
 
             //String date_to = period.End_Current_Month(current_month);
-
-            System.out.println("Test 8");
 
             if (os_type.GetOS_Type("Y").equals("WIN")) {
                 System.out.println("Y date_to = " + date_to);
@@ -65,6 +60,9 @@ public class Process_CMMS_Store {
             System.out.println("Start Process Date : " + new Timestamp(new java.util.Date().getTime()));
 
             process_for = "STORE";
+
+            System.out.println("Process date_from : " + date_from);
+            System.out.println("Process date_to : " + date_to);
 
             objcom.main_check(date_from, date_to);
 
