@@ -13,9 +13,9 @@ import java.util.Calendar;
 public class Process_CMMS_Store {
 
     public static void main(String args[]) {
-        System.out.println("Test 1");
+
         Process_Transaction();
-        System.out.println("Test End");
+        
 
     }
 
@@ -38,7 +38,7 @@ public class Process_CMMS_Store {
             String current_month = ObjDate.Return_Month_Now();
             String current_year = ObjDate.Return_Year_Now();
 
-            System.out.println("Test 6" + current_month);
+            System.out.println("Test 6 " + current_month);
 
             //String date_from = period.Start_Current_Month(current_month);
 
@@ -46,6 +46,8 @@ public class Process_CMMS_Store {
             String date_to = ObjDate.Return_Date_Now_full();
 
             //String date_to = period.End_Current_Month(current_month);
+
+            System.out.println("os_type = " + os_type.GetOS_Type("Y"));
 
             if (os_type.GetOS_Type("Y").equals("WIN")) {
                 System.out.println("Y date_to = " + date_to);

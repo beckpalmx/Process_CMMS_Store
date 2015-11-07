@@ -64,6 +64,23 @@ public class DBConnect {
         return conn;
     }
 
+    public Connection openCMMSConnection() throws Exception {
+        Connection conn;
+        Class.forName("org.postgresql.Driver");
+        String db_postgres_jdbc_test = "jdbc:postgresql://cgc-rv016.dyndns.org:5432/MADB_PRODUCT_2558";
+
+        // System.out.println(OS);
+        byte[] user_decode = Base64.decodeBase64(USERNAME);
+        byte[] pass_decode = Base64.decodeBase64(PASSWORD);
+        conn = DriverManager.getConnection(db_postgres_jdbc_test, new String(user_decode), new String(pass_decode));
+        if (conn == null) {
+            throw new SQLException("Cannot initial database connection, because it's NULL.");
+        }
+        //System.out.println("#: PostgreSQL connection opened := "+conn);
+        return conn;
+    }
+
+
     public Connection openTestConnection() throws Exception {
         Connection conn;
         Class.forName("org.postgresql.Driver");

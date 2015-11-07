@@ -12,7 +12,7 @@ public class UtiDatabase {
 
         int a = 0;
         DBConnect objcon = new DBConnect();
-        Connection con = objcon.openTestConnection();
+        Connection con = objcon.openCMMSConnection();
         ResultSet rs = con.createStatement().executeQuery(inputSQL);
         try {
             while (rs.next()) {

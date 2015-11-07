@@ -28,7 +28,7 @@ public class Process_transactionDB {
      */
     public void generater_transaction_process(String date_from, String date_to) throws Exception {
         ArrayList<DataBean_Transaction_Process> obj_AL_process_transaction = new ArrayList<>();
-        Connection con = new DBConnect().openTestConnection();
+        Connection con = new DBConnect().openCMMSConnection();
         ResultSet rs;
         PreparedStatement p = null;
         //Random r = new Random();
@@ -114,7 +114,7 @@ public class Process_transactionDB {
      */
     public void generater_transaction_process2(String date_from, String date_to) throws Exception {
         ArrayList<DataBean_Transaction_Process> obj_AL_process_transaction = new ArrayList<>();
-        Connection con = new DBConnect().openTestConnection();
+        Connection con = new DBConnect().openCMMSConnection();
         ResultSet rs;
         PreparedStatement p = null;
         //Random r = new Random();
