@@ -1,3 +1,4 @@
+
 /*
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
@@ -79,11 +80,11 @@ public class Process_transactionDB {
 
                 bean.setDoc_type(doc_type);
                 bean.setPart_id(rs.getString("part_id") == null ? "" : rs.getString("part_id"));
-                bean.setPrice_unit(rs.getString("price_unit") == null ? "0" : rs.getString("price_unit"));
-                bean.setQty(rs.getString("qty") == null ? "0" : rs.getString("qty"));
-                
+                bean.setPrice_unit((rs.getString("price_unit") == null || rs.getString("price_unit").equals("")) ? "0" : rs.getString("price_unit"));
+                bean.setQty((rs.getString("qty") == null || rs.getString("qty").equals("")) ? "0" : rs.getString("qty"));
+
                 String Unit_Id = "-";
-                
+
                 Unit_Id = Find_Unit("select mpu.unit_id from vm_part_unit_main mpu where mpu.part_id = '" + rs.getString("part_id") + "'", con);
 
                 bean.setUnit_id(rs.getString("unit_id") == null ? Unit_Id : rs.getString("unit_id"));
@@ -126,7 +127,7 @@ public class Process_transactionDB {
 
         SQL_DEL = " delete from t_transaction_stock "
                 + " where process_id in ('PR_002') ";
-                //+ " and to_date(format_date(doc_date),'YYYY-MM-DD') between to_date(format_date('" + date_from + "'),'YYYY-MM-DD') AND to_date(format_date('" + date_to + "'),'YYYY-MM-DD')";
+        //+ " and to_date(format_date(doc_date),'YYYY-MM-DD') between to_date(format_date('" + date_from + "'),'YYYY-MM-DD') AND to_date(format_date('" + date_to + "'),'YYYY-MM-DD')";
 
         //SQL_DEL1 = " delete from t_transaction_stock_error "
         //+ " where process_id in ('PR_002') ";
@@ -179,15 +180,14 @@ public class Process_transactionDB {
             }
             bean.setDoc_type(doc_type);
             bean.setPart_id(rs.getString("part_id") == null ? "-" : rs.getString("part_id"));
-            bean.setPrice_unit(rs.getString("price_unit") == null ? "0" : rs.getString("price_unit"));
-            bean.setQty(rs.getString("qty") == null ? "0" : rs.getString("qty").trim());
-            
-            String Unit_Id = "-";            
+            bean.setPrice_unit((rs.getString("price_unit") == null || rs.getString("price_unit").equals("")) ? "0" : rs.getString("price_unit"));
+            bean.setQty((rs.getString("qty") == null || rs.getString("qty").equals("")) ? "0" : rs.getString("qty"));
+
+            String Unit_Id = "-";
             Unit_Id = Find_Unit("select mpu.unit_id from vm_part_unit_main mpu where mpu.part_id = '" + rs.getString("part_id") + "'", con);
             bean.setUnit_id(rs.getString("unit_id") == null ? Unit_Id : rs.getString("unit_id"));
-            
-            //bean.setUnit_id(rs.getString("unit_id") == null ? "-" : rs.getString("unit_id"));
 
+            //bean.setUnit_id(rs.getString("unit_id") == null ? "-" : rs.getString("unit_id"));
             bean.setWh_id("001");
             bean.setLocation_id("-");
 
