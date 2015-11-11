@@ -1,11 +1,11 @@
 /**
  * Created by beckp on 3/10/2558.
  */
-import com.cmms.Util.DateUtil;
-import com.cmms.Util.OS_Type;
-import com.cmms.Util.PeriodDate;
-import com.cmms.Util.ReadConfig;
-import com.cmms.engine.Process_transaction;
+import com.cgc.Util.DateUtil;
+import com.cgc.Util.OS_Type;
+import com.cgc.Util.PeriodDate;
+import com.cgc.Util.ReadConfig;
+import com.cgc.engine.Process_transaction;
 
 import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
@@ -24,6 +24,7 @@ public class Process_CMMS_Store {
     public static void main(String args[]) {
 
         Process_Transaction();
+
     }
 
     private static void Process_Transaction() {

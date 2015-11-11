@@ -1,6 +1,6 @@
-package com.cmms.Util;
+package com.cgc.Util;
 
-import com.cmms.DB.DBConnect;
+import com.cgc.DB.DBConnect;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.text.DateFormat;

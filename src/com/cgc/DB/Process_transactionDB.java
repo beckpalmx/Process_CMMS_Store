@@ -3,9 +3,9 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.cmms.DB;
+package com.cgc.DB;
 
-import com.cmms.bean.DataBean_Transaction_Process;
+import com.cgc.bean.DataBean_Transaction_Process;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -29,7 +29,7 @@ public class Process_transactionDB {
      */
     public void generater_transaction_process(String date_from, String date_to) throws Exception {
         ArrayList<DataBean_Transaction_Process> obj_AL_process_transaction = new ArrayList<>();
-        Connection con = new DBConnect().openCMMSConnection();
+        Connection con = new DBConnect().openConnection_CMMS_Y();
         ResultSet rs;
         PreparedStatement p = null;
         //Random r = new Random();
@@ -94,7 +94,7 @@ public class Process_transactionDB {
                 //bean.setLocation_id(rs.getString("location_id").equals("")?"-":rs.getString("location_id"));
                 bean.setLocation_id("-");
 
-                System.out.println("process_id 001 part_id = " + rs.getString("part_id") + " doc_type = " + doc_type);
+                //System.out.println("process_id 001 part_id = " + rs.getString("part_id") + " doc_type = " + doc_type);
 
                 obj_AL_process_transaction.add(bean);
                 count_loop++;
@@ -115,7 +115,7 @@ public class Process_transactionDB {
      */
     public void generater_transaction_process2(String date_from, String date_to) throws Exception {
         ArrayList<DataBean_Transaction_Process> obj_AL_process_transaction = new ArrayList<>();
-        Connection con = new DBConnect().openCMMSConnection();
+        Connection con = new DBConnect().openConnection_CMMS_Y();
         ResultSet rs;
         PreparedStatement p = null;
         //Random r = new Random();
@@ -191,7 +191,7 @@ public class Process_transactionDB {
             bean.setWh_id("001");
             bean.setLocation_id("-");
 
-            System.out.println("process_id 002 part_id = " + rs.getString("part_id") + " doc_type = " + doc_type);
+            //System.out.println("process_id 002 part_id = " + rs.getString("part_id") + " doc_type = " + doc_type);
 
             obj_AL_process_transaction.add(bean);
             if (rs.getString("part_id") == null || rs.getString("doc_date") == null || rs.getString("doc_type") == null || rs.getString("unit_id") == null) {

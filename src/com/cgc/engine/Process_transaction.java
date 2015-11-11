@@ -2,9 +2,9 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.cmms.engine;
+package com.cgc.engine;
 
-import com.cmms.DB.Process_transactionDB;
+import com.cgc.DB.Process_transactionDB;
 import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
 import java.util.Random;

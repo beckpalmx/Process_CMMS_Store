@@ -1,4 +1,4 @@
-package com.cmms.Util;
+package com.cgc.Util;
 
 /**
  * Created by beckp on 7/11/2558.
