@@ -179,13 +179,13 @@ public class DBConnect {
 
         String XML_File = System.getProperty("os.name").substring(0, 3).toUpperCase().equals("WIN") ? "cgc_config.xml" : "/opt/taskapp/cgc_config.xml";
 
-        System.out.println("System = " + System.getProperty("os.name").substring(0, 3));
+        //System.out.println("System = " + System.getProperty("os.name").substring(0, 3));
 
         InputSource inputSource = new InputSource(XML_File);
         try {
-            System.out.println("In Class");
-            System.out.println("xpath = " + xpath);
-            System.out.println("inputSource = " + inputSource);
+            //System.out.println("In Class");
+            //System.out.println("xpath = " + xpath);
+            //System.out.println("inputSource = " + inputSource);
             db_postgres_server = xpath.evaluate("//server", inputSource);
             db_postgres_server_bw = xpath.evaluate("//server_bw", inputSource);
 
