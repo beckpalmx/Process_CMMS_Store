@@ -83,9 +83,9 @@ public class Process_transactionDB {
                 bean.setPrice_unit((rs.getString("price_unit") == null || rs.getString("price_unit").equals("")) ? "0" : rs.getString("price_unit"));
                 bean.setQty((rs.getString("qty") == null || rs.getString("qty").equals("")) ? "0" : rs.getString("qty"));
 
-                String Unit_Id = "-";
+                //String Unit_Id = "-";
 
-                Unit_Id = Find_Unit("select mpu.unit_id from vm_part_unit_main mpu where mpu.part_id = '" + rs.getString("part_id") + "'", con);
+                String Unit_Id = Find_Unit("select mpu.unit_id from vm_part_unit_main mpu where mpu.part_id = '" + rs.getString("part_id") + "'", con);
 
                 bean.setUnit_id(rs.getString("unit_id") == null ? Unit_Id : rs.getString("unit_id"));
 
@@ -95,7 +95,6 @@ public class Process_transactionDB {
                 bean.setLocation_id("-");
 
                 //System.out.println("process_id 001 part_id = " + rs.getString("part_id") + " doc_type = " + doc_type);
-
                 obj_AL_process_transaction.add(bean);
                 count_loop++;
                 insert(obj_AL_process_transaction, con, p);
@@ -134,13 +133,13 @@ public class Process_transactionDB {
         //+ " and to_date(format_date(doc_date),'YYYY-MM-DD') between to_date(format_date('" + date_from + "'),'YYYY-MM-DD') AND to_date(format_date('" + date_to + "'),'YYYY-MM-DD')";
         //SQL = " select runno,doc_id,line_no,doc_date,ap_date1,ap_date2,doc_type,part_id,price_unit,to_char(qty_number,'999999.99') as qty,unit_id from vd_stock_withdraw_detail_store_transaction_process "
         SQL = " select runno,doc_id,line_no,doc_date,ap_date1,ap_date2,doc_type,part_id,price_unit,to_char(qty_number,'999999.99') as qty,unit_id from vd_stock_withdraw_detail_store_trans "
-                + " where withdraw_for = 'N' "
-                + "and (part_id IS NOT NULL or unit_id IS NOT NULL) and to_date(format_date(doc_date),'YYYY-MM-DD') between to_date(format_date('" + date_from + "'),'YYYY-MM-DD') AND to_date(format_date('" + date_to + "'),'YYYY-MM-DD')";
+                + " where withdraw_for = 'N' and complete_flag = 'Y' "
+                + " and (part_id IS NOT NULL and unit_id IS NOT NULL) and to_date(format_date(doc_date),'YYYY-MM-DD') between to_date(format_date('" + date_from + "'),'YYYY-MM-DD') AND to_date(format_date('" + date_to + "'),'YYYY-MM-DD')";
 
         //SQL1 = " select count(*) from vd_stock_withdraw_detail_store_transaction_process "
         SQL1 = " select count(*) from vd_stock_withdraw_detail_store_trans "
-                + " where withdraw_for = 'N' "
-                + " where (part_id IS NOT NULL or unit_id IS NOT NULL) and to_date(format_date(doc_date),'YYYY-MM-DD') between to_date(format_date('" + date_from + "'),'YYYY-MM-DD') AND to_date(format_date('" + date_to + "'),'YYYY-MM-DD')";
+                + " where withdraw_for = 'N' and complete_flag = 'Y' "
+                + " and (part_id IS NOT NULL and unit_id IS NOT NULL) and to_date(format_date(doc_date),'YYYY-MM-DD') between to_date(format_date('" + date_from + "'),'YYYY-MM-DD') AND to_date(format_date('" + date_to + "'),'YYYY-MM-DD')";
 
         System.out.println("SQL 2 = " + SQL);
         //Record = numrow(SQL1, con);
@@ -165,8 +164,6 @@ public class Process_transactionDB {
             bean.setProcess_id("PR_002");
             bean.setDoc_id(rs.getString("doc_id"));
             bean.setLine_no(rs.getString("line_no") == null ? "-" : rs.getString("line_no"));
-            //bean.setDoc_date(rs.getString("doc_date"));
-            bean.setLine_no(rs.getString("line_no") == null ? "-" : rs.getString("line_no"));
             bean.setDoc_date(rs.getString("doc_date") == null ? "-" : rs.getString("doc_date"));
 
             String doc_type;
@@ -183,8 +180,8 @@ public class Process_transactionDB {
             bean.setPrice_unit((rs.getString("price_unit") == null || rs.getString("price_unit").equals("")) ? "0" : rs.getString("price_unit"));
             bean.setQty((rs.getString("qty") == null || rs.getString("qty").equals("")) ? "0" : rs.getString("qty"));
 
-            String Unit_Id = "-";
-            Unit_Id = Find_Unit("select mpu.unit_id from vm_part_unit_main mpu where mpu.part_id = '" + rs.getString("part_id") + "'", con);
+            //String Unit_Id = "-";
+            String Unit_Id = Find_Unit("select mpu.unit_id from vm_part_unit_main mpu where mpu.part_id = '" + rs.getString("part_id") + "'", con);
             bean.setUnit_id(rs.getString("unit_id") == null ? Unit_Id : rs.getString("unit_id"));
 
             //bean.setUnit_id(rs.getString("unit_id") == null ? "-" : rs.getString("unit_id"));
@@ -192,7 +189,6 @@ public class Process_transactionDB {
             bean.setLocation_id("-");
 
             //System.out.println("process_id 002 part_id = " + rs.getString("part_id") + " doc_type = " + doc_type);
-
             obj_AL_process_transaction.add(bean);
             if (rs.getString("part_id") == null || rs.getString("doc_date") == null || rs.getString("doc_type") == null || rs.getString("unit_id") == null) {
                 //insert_error(obj_AL_process_transaction, con, p);
@@ -210,6 +206,86 @@ public class Process_transactionDB {
         InsTimeStamp(SQL_TimeStamp, con, p);
     }
 
+    /**
+     *
+     * @param date_from
+     * @param date_to
+     * @throws Exception
+     */
+    public void generater_transaction_process_oil_withdraw(String date_from, String date_to) throws Exception {
+        ArrayList<DataBean_Transaction_Process> obj_AL_process_transaction = new ArrayList<>();
+        Connection con = new DBConnect().openConnection_CMMS_Y();
+        ResultSet rs;
+        PreparedStatement p = null;
+        //Random r = new Random();
+        String SQL_DEL, SQL_DEL1, SQL, SQL1, token, SQL_TimeStamp;
+        int count_loop = 0;
+        //int Record = 0;
+        System.out.println("Date From Param Send 3 : " + date_from);
+        System.out.println("Date To Param Send 3 : " + date_to);
+
+        SQL_DEL = " delete from t_transaction_stock "
+                + " where process_id in ('PR_003') ";
+
+        SQL = " select runno,doc_id,doc_date,part_id,to_char(qty_number,'999999.99') as qty,unit_id_use "
+                + " from vd_oil_withdraw "
+                + " where (part_id IS NOT NULL and unit_id_use IS NOT NULL) and to_date(format_date(doc_date),'YYYY-MM-DD') between to_date(format_date('" + date_from + "'),'YYYY-MM-DD') AND to_date(format_date('" + date_to + "'),'YYYY-MM-DD')";
+
+        SQL1 = " select count(*) from vd_oil_withdraw "
+                + " where (part_id IS NOT NULL and unit_id_use IS NOT NULL) and to_date(format_date(doc_date),'YYYY-MM-DD') between to_date(format_date('" + date_from + "'),'YYYY-MM-DD') AND to_date(format_date('" + date_to + "'),'YYYY-MM-DD')";
+
+        System.out.println("SQL 3 = " + SQL);
+
+        token = "PR_003_" + new SimpleDateFormat("ddMMyy_hhmmssS").format(new Date());
+        System.out.println("Token = " + token);
+
+        SQL_TimeStamp = " Insert into t_process_log (log_id,process_id,start_time) values ('" + token + "','PR_003','" + new Timestamp(new java.util.Date().getTime()) + "')";
+        System.out.println("SQL_TimeStamp = " + SQL_TimeStamp);
+        InsTimeStamp(SQL_TimeStamp, con, p);
+
+        //if (Record >= 1) {
+        delete(SQL_DEL, con, p);
+        //delete(SQL_DEL1, con, p);
+        System.out.println("Process 003 SQL = " + SQL);
+        rs = con.createStatement().executeQuery(SQL);
+
+        DataBean_Transaction_Process bean = new DataBean_Transaction_Process();
+        while (rs.next()) {
+            bean.setProcess_id("PR_003");
+            bean.setDoc_id(rs.getString("doc_id"));
+            bean.setDoc_date(rs.getString("doc_date") == null ? "-" : rs.getString("doc_date"));
+
+            bean.setDoc_type("-");
+            bean.setPart_id(rs.getString("part_id") == null ? "-" : rs.getString("part_id"));
+            //bean.setPrice_unit((rs.getString("price_unit") == null || rs.getString("price_unit").equals("")) ? "0" : rs.getString("price_unit"));
+            bean.setQty((rs.getString("qty") == null || rs.getString("qty").equals("")) ? "0" : rs.getString("qty"));
+
+            //String Unit_Id = "-";
+            String Unit_Id = Find_Unit("select mpu.unit_id from vm_part_unit_main mpu where mpu.part_id = '" + rs.getString("part_id") + "'", con);
+            bean.setUnit_id(rs.getString("unit_id_use") == null ? Unit_Id : rs.getString("unit_id_use"));
+
+            //bean.setUnit_id(rs.getString("unit_id") == null ? "-" : rs.getString("unit_id"));
+            bean.setWh_id("001");
+            bean.setLocation_id("-");
+
+            //System.out.println("process_id 002 part_id = " + rs.getString("part_id") + " doc_type = " + doc_type);
+            obj_AL_process_transaction.add(bean);
+            if (rs.getString("part_id") == null || rs.getString("doc_date") == null || rs.getString("unit_id_use") == null) {
+                //insert_error(obj_AL_process_transaction, con, p);
+                System.out.println("Error Can't Insert Data");
+            } else {
+                insert(obj_AL_process_transaction, con, p);
+            }
+
+            count_loop++;
+
+        }
+        System.out.println("P3 count_loop : " + count_loop);
+        SQL_TimeStamp = " Update t_process_log set condition = '" + SQL.replace("'", "#") + "', remark = '" + count_loop + " Record',complete_flag = 'Y' , end_time = '" + new Timestamp(new java.util.Date().getTime()) + "' where log_id = '" + token + "'";
+        System.out.println("SQL_TimeStamp = " + SQL_TimeStamp);
+        InsTimeStamp(SQL_TimeStamp, con, p);
+    }
+
     private static String Find_Unit(String SQL, Connection con) throws Exception {
         ResultSet rs = null;
         String Unit_ID = "";
@@ -219,6 +295,7 @@ public class Process_transactionDB {
                 Unit_ID = rs.getString(1);
             }
         } catch (SQLException e) {
+            System.out.println(e);
         } finally {
             if (rs != null) {
                 rs.close();

@@ -32,9 +32,10 @@ public class Process_transaction {
             Random r = new Random();
             Process_transactionDB obj = new Process_transactionDB();
             String r_create = Long.toString(Math.abs(r.nextLong()), 36);
-            //เรียกใช้งานให้ส่ง Parameter ตามนี้ obj.generater_transaction_process(job_id);             
+            //เรียกใช้งานให้ส่ง Parameter ตามนี้ obj.generater_transaction_process(job_id);
             obj.generater_transaction_process(date_from, date_to);
             obj.generater_transaction_process2(date_from, date_to);
+            obj.generater_transaction_process_oil_withdraw(date_from, date_to);
 
         } catch (Exception e) {
             e.printStackTrace(System.out);
