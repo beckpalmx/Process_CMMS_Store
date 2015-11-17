@@ -119,6 +119,7 @@ public class Process_transactionDB {
         PreparedStatement p = null;
         //Random r = new Random();
         String SQL_DEL, SQL_DEL1, SQL, SQL1, token, SQL_TimeStamp;
+        String doc_date ;
         int count_loop = 0;
         //int Record = 0;
         System.out.println("Date From Param Send 2 : " + date_from);
@@ -164,7 +165,19 @@ public class Process_transactionDB {
             bean.setProcess_id("PR_002");
             bean.setDoc_id(rs.getString("doc_id"));
             bean.setLine_no(rs.getString("line_no") == null ? "-" : rs.getString("line_no"));
-            bean.setDoc_date(rs.getString("doc_date") == null ? "-" : rs.getString("doc_date"));
+
+            if (rs.getString("ap_date1").equals("-") && rs.getString("ap_date2").equals("-") ) {
+                doc_date = rs.getString("doc_date") ;
+                System.out.println("Doc_Date Doc_Date = " + doc_date);
+            } else if (rs.getString("ap_date1").equals("-") && !rs.getString("ap_date2").equals("-") ) {
+                doc_date = rs.getString("ap_date2") ;
+                System.out.println("Doc_Date ap_date2 = " + doc_date);
+            } else {
+                doc_date = rs.getString("ap_date1") ;
+                System.out.println("Doc_Date ap_date1 = " + doc_date);
+            }
+
+            bean.setDoc_date(doc_date);
 
             String doc_type;
 
