@@ -38,9 +38,11 @@ public class Process_transactionDB {
         System.out.println("Date From Param Send : " + date_from);
         System.out.println("Date To Param Send : " + date_to);
 
-        SQL_DEL = " delete from t_transaction_stock "
-                + " where process_id in ('PR_001') ";
+        SQL_DEL = " delete from t_transaction_stock ; ALTER SEQUENCE seq_t_transaction_stock RESTART WITH 1; ";
+        //+ " where process_id in ('PR_001') ";
         //+ " and to_date(format_date(doc_date),'YYYY-MM-DD') between to_date(format_date('" + date_from + "'),'YYYY-MM-DD') AND to_date(format_date('" + date_to + "'),'YYYY-MM-DD')";
+
+        delete(SQL_DEL, con, p);
 
         SQL = " select runno,doc_id,doc_date,doc_type,part_id,price_unit,qty,unit_id,wh_id,location_id from vd_adjust_stock_detail "
                 + " where doc_type in ('R','W','B','D') "
@@ -51,8 +53,8 @@ public class Process_transactionDB {
                 + " and to_date(format_date(doc_date),'YYYY-MM-DD') between to_date(format_date('" + date_from + "'),'YYYY-MM-DD') AND to_date(format_date('" + date_to + "'),'YYYY-MM-DD')";
 
         System.out.println("SQL = " + SQL);
-        Record = numrow(SQL1, con);
-        System.out.println("PR_001 Record = " + Record);
+        //Record = numrow(SQL1, con);
+        //System.out.println("PR_001 Record = " + Record);
         token = "PR_001_" + new SimpleDateFormat("ddMMyy_hhmmssS").format(new Date());
         System.out.println("Token = " + token);
 
@@ -60,48 +62,46 @@ public class Process_transactionDB {
         System.out.println("SQL_TimeStamp = " + SQL_TimeStamp);
         InsTimeStamp(SQL_TimeStamp, con, p);
 
-        if (Record >= 1) {
-            delete(SQL_DEL, con, p);
-            rs = con.createStatement().executeQuery(SQL);
-            DataBean_Transaction_Process bean = new DataBean_Transaction_Process();
-            while (rs.next()) {
-                bean.setProcess_id("PR_001");
-                bean.setDoc_id(rs.getString("doc_id"));
-                //bean.setDoc_date(rs.getString("doc_date"));
-                bean.setDoc_date(rs.getString("doc_date") == null ? "-" : rs.getString("doc_date"));
-                String doc_type;
-                if (rs.getString("doc_type").equalsIgnoreCase("B") || rs.getString("doc_type").equalsIgnoreCase("R")) {
-                    //bean.setDoc_type("+");
-                    doc_type = "+";
-                } else {
-                    //bean.setDoc_type("-");
-                    doc_type = "-";
-                }
-
-                bean.setDoc_type(doc_type);
-                bean.setPart_id(rs.getString("part_id") == null ? "" : rs.getString("part_id"));
-                bean.setPrice_unit((rs.getString("price_unit") == null || rs.getString("price_unit").equals("")) ? "0" : rs.getString("price_unit"));
-                bean.setQty((rs.getString("qty") == null || rs.getString("qty").equals("")) ? "0" : rs.getString("qty"));
-
-                //String Unit_Id = "-";
-
-                String Unit_Id = Find_Unit("select mpu.unit_id from vm_part_unit_main mpu where mpu.part_id = '" + rs.getString("part_id") + "'", con);
-
-                bean.setUnit_id(rs.getString("unit_id") == null ? Unit_Id : rs.getString("unit_id"));
-
-                //bean.setWh_id(rs.getString("wh_id").equals("")?"-":rs.getString("wh_id"));
-                bean.setWh_id("001");
-                //bean.setLocation_id(rs.getString("location_id").equals("")?"-":rs.getString("location_id"));
-                bean.setLocation_id("-");
-
-                //System.out.println("process_id 001 part_id = " + rs.getString("part_id") + " doc_type = " + doc_type);
-                obj_AL_process_transaction.add(bean);
-                count_loop++;
-                insert(obj_AL_process_transaction, con, p);
+        //if (Record >= 1) {
+        rs = con.createStatement().executeQuery(SQL);
+        DataBean_Transaction_Process bean = new DataBean_Transaction_Process();
+        while (rs.next()) {
+            bean.setProcess_id("PR_001");
+            bean.setDoc_id(rs.getString("doc_id"));
+            //bean.setDoc_date(rs.getString("doc_date"));
+            bean.setDoc_date(rs.getString("doc_date") == null ? "-" : rs.getString("doc_date"));
+            String doc_type;
+            if (rs.getString("doc_type").equalsIgnoreCase("B") || rs.getString("doc_type").equalsIgnoreCase("R")) {
+                //bean.setDoc_type("+");
+                doc_type = "+";
+            } else {
+                //bean.setDoc_type("-");
+                doc_type = "-";
             }
+
+            bean.setDoc_type(doc_type);
+            bean.setPart_id(rs.getString("part_id") == null ? "" : rs.getString("part_id"));
+            bean.setPrice_unit((rs.getString("price_unit") == null || rs.getString("price_unit").equals("")) ? "0" : rs.getString("price_unit"));
+            bean.setQty((rs.getString("qty") == null || rs.getString("qty").equals("")) ? "0" : rs.getString("qty"));
+
+            //String Unit_Id = "-";
+            String Unit_Id = Find_Unit("select mpu.unit_id from vm_part_unit_main mpu where mpu.part_id = '" + rs.getString("part_id") + "'", con);
+
+            bean.setUnit_id(rs.getString("unit_id") == null ? Unit_Id : rs.getString("unit_id"));
+
+            //bean.setWh_id(rs.getString("wh_id").equals("")?"-":rs.getString("wh_id"));
+            bean.setWh_id("001");
+            //bean.setLocation_id(rs.getString("location_id").equals("")?"-":rs.getString("location_id"));
+            bean.setLocation_id("-");
+
+            //System.out.println("process_id 001 part_id = " + rs.getString("part_id") + " doc_type = " + doc_type);
+            obj_AL_process_transaction.add(bean);
+            count_loop++;
+            insert(obj_AL_process_transaction, con, p);
         }
+        //}
         System.out.println("P1 count_loop = " + count_loop);
-        SQL_TimeStamp = " Update t_process_log set condition = '" + SQL.replace("'", "#") + "', remark = '" + Record + " Record',complete_flag = 'Y' , end_time = '" + new Timestamp(new java.util.Date().getTime()) + "' where log_id = '" + token + "'";
+        SQL_TimeStamp = " Update t_process_log set condition = '" + SQL.replace("'", "#") + "', remark = '" + count_loop + " Record',complete_flag = 'Y' , end_time = '" + new Timestamp(new java.util.Date().getTime()) + "' where log_id = '" + token + "'";
         System.out.println("SQL_TimeStamp = " + SQL_TimeStamp);
         InsTimeStamp(SQL_TimeStamp, con, p);
     }
@@ -119,7 +119,7 @@ public class Process_transactionDB {
         PreparedStatement p = null;
         //Random r = new Random();
         String SQL_DEL, SQL_DEL1, SQL, SQL1, token, SQL_TimeStamp;
-        String doc_date ;
+        String doc_date;
         int count_loop = 0;
         //int Record = 0;
         System.out.println("Date From Param Send 2 : " + date_from);
@@ -155,7 +155,7 @@ public class Process_transactionDB {
         InsTimeStamp(SQL_TimeStamp, con, p);
 
         //if (Record >= 1) {
-        delete(SQL_DEL, con, p);
+        //delete(SQL_DEL, con, p);
         //delete(SQL_DEL1, con, p);
         System.out.println("Process 002 SQL = " + SQL);
         rs = con.createStatement().executeQuery(SQL);
@@ -166,14 +166,14 @@ public class Process_transactionDB {
             bean.setDoc_id(rs.getString("doc_id"));
             bean.setLine_no(rs.getString("line_no") == null ? "-" : rs.getString("line_no"));
 
-            if (rs.getString("ap_date1").equals("-") && rs.getString("ap_date2").equals("-") ) {
-                doc_date = rs.getString("doc_date") ;
+            if (rs.getString("ap_date1").equals("-") && rs.getString("ap_date2").equals("-")) {
+                doc_date = rs.getString("doc_date");
                 System.out.println("Doc_Date Doc_Date = " + doc_date);
-            } else if (rs.getString("ap_date1").equals("-") && !rs.getString("ap_date2").equals("-") ) {
-                doc_date = rs.getString("ap_date2") ;
+            } else if (rs.getString("ap_date1").equals("-") && !rs.getString("ap_date2").equals("-")) {
+                doc_date = rs.getString("ap_date2");
                 System.out.println("Doc_Date ap_date2 = " + doc_date);
             } else {
-                doc_date = rs.getString("ap_date1") ;
+                doc_date = rs.getString("ap_date1");
                 System.out.println("Doc_Date ap_date1 = " + doc_date);
             }
 
@@ -257,7 +257,7 @@ public class Process_transactionDB {
         InsTimeStamp(SQL_TimeStamp, con, p);
 
         //if (Record >= 1) {
-        delete(SQL_DEL, con, p);
+        //delete(SQL_DEL, con, p);
         //delete(SQL_DEL1, con, p);
         System.out.println("Process 003 SQL = " + SQL);
         rs = con.createStatement().executeQuery(SQL);
