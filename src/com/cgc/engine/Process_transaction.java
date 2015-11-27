@@ -5,6 +5,7 @@
 package com.cgc.engine;
 
 import com.cgc.DB.Process_transactionDB;
+import com.cgc.DB.Process_Stock_Balance_DB;
 import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
 import java.util.Random;
@@ -31,11 +32,13 @@ public class Process_transaction {
         try {
             Random r = new Random();
             Process_transactionDB obj = new Process_transactionDB();
+            Process_Stock_Balance_DB obj_STB = new Process_Stock_Balance_DB();
             String r_create = Long.toString(Math.abs(r.nextLong()), 36);
             //เรียกใช้งานให้ส่ง Parameter ตามนี้ obj.generater_transaction_process(job_id);
             obj.generater_transaction_process(date_from, date_to);
             obj.generater_transaction_process2(date_from, date_to);
             obj.generater_transaction_process_oil_withdraw(date_from, date_to);
+            obj_STB.generater_transaction_stock_process(date_from, date_to);
 
         } catch (Exception e) {
             e.printStackTrace(System.out);
