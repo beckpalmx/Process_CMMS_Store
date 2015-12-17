@@ -6,7 +6,12 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="997145b9-2212-4153-a7bc-95c5d7803564" name="Default" comment="" />
+    <list default="true" id="997145b9-2212-4153-a7bc-95c5d7803564" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/Process_CMMS_Store_jar/Process_CMMS_Store.jar" afterPath="$PROJECT_DIR$/out/artifacts/Process_CMMS_Store_jar/Process_CMMS_Store.jar" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Process_CMMS_Store/com/cgc/DB/Process_Stock_Balance_DB.class" afterPath="$PROJECT_DIR$/out/production/Process_CMMS_Store/com/cgc/DB/Process_Stock_Balance_DB.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/cgc/DB/Process_Stock_Balance_DB.java" afterPath="$PROJECT_DIR$/src/com/cgc/DB/Process_Stock_Balance_DB.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+    </list>
     <ignored path="Process_CMMS_Store.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path="$PROJECT_DIR$/out/" />
@@ -33,16 +38,19 @@
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
               <caret line="70" column="0" selection-start-line="70" selection-start-column="0" selection-end-line="70" selection-end-column="0" />
-              <folding />
+              <folding>
+                <element signature="n#!!doc" expanded="false" />
+                <element signature="imports" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Process_transaction.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Process_transaction.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/cgc/engine/Process_transaction.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="37" column="66" selection-start-line="37" selection-start-column="66" selection-end-line="37" selection-end-column="66" />
+              <caret line="21" column="14" selection-start-line="21" selection-start-column="14" selection-end-line="21" selection-end-column="14" />
               <folding>
                 <element signature="e#0#2053#0" expanded="true" />
                 <element signature="imports" expanded="true" />
@@ -57,8 +65,6 @@
             <state vertical-scroll-proportion="0.0">
               <caret line="31" column="62" selection-start-line="31" selection-start-column="41" selection-end-line="31" selection-end-column="62" />
               <folding>
-                <element signature="e#0#20948#0" expanded="true" />
-                <element signature="imports" expanded="true" />
                 <marker date="1447835339069" expanded="true" signature="1538:1900" placeholder="select runno..vd_adjust_stock_detail..." />
                 <marker date="1447835339069" expanded="true" signature="6739:7221" placeholder="select runno..vd_stock_withdraw_detail_store_trans..." />
                 <marker date="1447835339069" expanded="true" signature="12442:12818" placeholder="select runno..vd_oil_withdraw..." />
@@ -69,18 +75,29 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Process_Stock_Balance_DB.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Process_Stock_Balance_DB.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/cgc/DB/Process_Stock_Balance_DB.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.63506263">
-              <caret line="86" column="63" selection-start-line="86" selection-start-column="63" selection-end-line="86" selection-end-column="63" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="73" column="61" selection-start-line="73" selection-start-column="61" selection-end-line="73" selection-end-column="61" />
               <folding>
-                <element signature="e#0#4783#0" expanded="true" />
-                <element signature="imports" expanded="true" />
-                <marker date="1448612077082" expanded="true" signature="1516:2004" placeholder="select part_..vt_transaction_stockmissingValue..." />
-                <marker date="1448612077082" expanded="true" signature="1573:1663" placeholder="select vp.la..vm_part_price..." />
-                <marker date="1448612077082" expanded="true" signature="1717:1807" placeholder="select vp.la..vm_part_price..." />
-                <marker date="1448612077082" expanded="true" signature="2712:2914" placeholder="insert into ..." />
+                <marker date="1448615632902" expanded="true" signature="1516:2080" placeholder="select part_..vt_transaction_stockmissingValue..." />
+                <marker date="1448615632902" expanded="true" signature="1573:1663" placeholder="select vp.la..vm_part_price..." />
+                <marker date="1448615632902" expanded="true" signature="1717:1807" placeholder="select vp.la..vm_part_price..." />
+                <marker date="1448615632902" expanded="true" signature="2788:3024" placeholder="insert into ..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="DBConnect.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/cgc/DB/DBConnect.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="191" column="70" selection-start-line="191" selection-start-column="70" selection-end-line="191" selection-end-column="70" />
+              <folding>
+                <element signature="e#0#10106#0" expanded="false" />
+                <element signature="imports" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -91,10 +108,7 @@
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
               <caret line="4" column="3" selection-start-line="4" selection-start-column="3" selection-end-line="4" selection-end-column="3" />
-              <folding>
-                <element signature="e#0#668#0" expanded="true" />
-                <element signature="imports" expanded="true" />
-              </folding>
+              <folding />
             </state>
           </provider>
         </entry>
@@ -174,6 +188,9 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="Scope" />
+      <pane id="PackagesPane" />
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -182,11 +199,72 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Process_CMMS_Store" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Process_CMMS_Store" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Process_CMMS_Store" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Process_CMMS_Store" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Process_CMMS_Store" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Process_CMMS_Store" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="cgc" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Process_CMMS_Store" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Process_CMMS_Store" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="cgc" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="engine" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
-      <pane id="Scratches" />
-      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -207,6 +285,7 @@
     <property name="GenerateAntBuildDialog.generateIdeaHomeProperty" value="false" />
     <property name="GenerateAntBuildDialog.outputFileNameProperty" value="process_cmms_store" />
     <property name="FullScreen" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
   </component>
   <component name="RunManager" selected="Application.Process_CMMS_Store">
     <configuration default="false" name="Process_CMMS_Store" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
@@ -579,20 +658,23 @@
       <workItem from="1447836158980" duration="998000" />
       <workItem from="1447896845291" duration="603000" />
       <workItem from="1448590501283" duration="547000" />
-      <workItem from="1448610277823" duration="2274000" />
+      <workItem from="1448610277823" duration="3002000" />
+      <workItem from="1448615253705" duration="1706000" />
+      <workItem from="1449496192392" duration="257000" />
+      <workItem from="1449711154945" duration="467000" />
+      <workItem from="1450315105387" duration="615000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="60349000" />
+    <option name="totallyTimeSpent" value="64122000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="754" extended-state="7" />
-    <editor active="true" />
+    <frame x="-8" y="-8" width="1382" height="754" extended-state="6" />
+    <editor active="false" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32713178" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -601,19 +683,20 @@
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.26511627" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.17057101" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.25841874" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32868218" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32713178" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24944486" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32868218" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="Vcs.Log.UiProperties">
@@ -651,7 +734,10 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
+          <folding>
+            <element signature="n#!!doc" expanded="false" />
+            <element signature="imports" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -671,8 +757,6 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="216" column="62" selection-start-line="216" selection-start-column="62" selection-end-line="216" selection-end-column="62" />
           <folding>
-            <element signature="e#0#20948#0" expanded="true" />
-            <element signature="imports" expanded="true" />
             <marker date="1447835339069" expanded="true" signature="1538:1900" placeholder="select runno..vd_adjust_stock_detail..." />
             <marker date="1447835339069" expanded="true" signature="6739:7221" placeholder="select runno..vd_stock_withdraw_detail_store_trans..." />
             <marker date="1447835339069" expanded="true" signature="12442:12818" placeholder="select runno..vd_oil_withdraw..." />
@@ -697,7 +781,10 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="76" column="50" selection-start-line="76" selection-start-column="50" selection-end-line="76" selection-end-column="50" />
-          <folding />
+          <folding>
+            <element signature="n#!!doc" expanded="false" />
+            <element signature="imports" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -717,8 +804,6 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="33" column="35" selection-start-line="33" selection-start-column="35" selection-end-line="33" selection-end-column="35" />
           <folding>
-            <element signature="e#0#20948#0" expanded="true" />
-            <element signature="imports" expanded="true" />
             <marker date="1447835339069" expanded="true" signature="1538:1900" placeholder="select runno..vd_adjust_stock_detail..." />
             <marker date="1447835339069" expanded="true" signature="6739:7221" placeholder="select runno..vd_stock_withdraw_detail_store_trans..." />
             <marker date="1447835339069" expanded="true" signature="12442:12818" placeholder="select runno..vd_oil_withdraw..." />
@@ -743,7 +828,10 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="76" column="50" selection-start-line="76" selection-start-column="50" selection-end-line="76" selection-end-column="50" />
-          <folding />
+          <folding>
+            <element signature="n#!!doc" expanded="false" />
+            <element signature="imports" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -763,8 +851,6 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="33" column="35" selection-start-line="33" selection-start-column="35" selection-end-line="33" selection-end-column="35" />
           <folding>
-            <element signature="e#0#20948#0" expanded="true" />
-            <element signature="imports" expanded="true" />
             <marker date="1447835339069" expanded="true" signature="1538:1900" placeholder="select runno..vd_adjust_stock_detail..." />
             <marker date="1447835339069" expanded="true" signature="6739:7221" placeholder="select runno..vd_stock_withdraw_detail_store_trans..." />
             <marker date="1447835339069" expanded="true" signature="12442:12818" placeholder="select runno..vd_oil_withdraw..." />
@@ -789,7 +875,10 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="76" column="50" selection-start-line="76" selection-start-column="50" selection-end-line="76" selection-end-column="50" />
-          <folding />
+          <folding>
+            <element signature="n#!!doc" expanded="false" />
+            <element signature="imports" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -809,8 +898,6 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="33" column="35" selection-start-line="33" selection-start-column="35" selection-end-line="33" selection-end-column="35" />
           <folding>
-            <element signature="e#0#20948#0" expanded="true" />
-            <element signature="imports" expanded="true" />
             <marker date="1447835339069" expanded="true" signature="1538:1900" placeholder="select runno..vd_adjust_stock_detail..." />
             <marker date="1447835339069" expanded="true" signature="6739:7221" placeholder="select runno..vd_stock_withdraw_detail_store_trans..." />
             <marker date="1447835339069" expanded="true" signature="12442:12818" placeholder="select runno..vd_oil_withdraw..." />
@@ -835,7 +922,10 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="76" column="50" selection-start-line="76" selection-start-column="50" selection-end-line="76" selection-end-column="50" />
-          <folding />
+          <folding>
+            <element signature="n#!!doc" expanded="false" />
+            <element signature="imports" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -855,8 +945,6 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="193" column="14" selection-start-line="193" selection-start-column="14" selection-end-line="193" selection-end-column="14" />
           <folding>
-            <element signature="e#0#20948#0" expanded="true" />
-            <element signature="imports" expanded="true" />
             <marker date="1447835339069" expanded="true" signature="1538:1900" placeholder="select runno..vd_adjust_stock_detail..." />
             <marker date="1447835339069" expanded="true" signature="6739:7221" placeholder="select runno..vd_stock_withdraw_detail_store_trans..." />
             <marker date="1447835339069" expanded="true" signature="12442:12818" placeholder="select runno..vd_oil_withdraw..." />
@@ -881,7 +969,10 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="76" column="50" selection-start-line="76" selection-start-column="50" selection-end-line="76" selection-end-column="50" />
-          <folding />
+          <folding>
+            <element signature="n#!!doc" expanded="false" />
+            <element signature="imports" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -901,8 +992,6 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="193" column="14" selection-start-line="193" selection-start-column="14" selection-end-line="193" selection-end-column="14" />
           <folding>
-            <element signature="e#0#20948#0" expanded="true" />
-            <element signature="imports" expanded="true" />
             <marker date="1447835339069" expanded="true" signature="1538:1900" placeholder="select runno..vd_adjust_stock_detail..." />
             <marker date="1447835339069" expanded="true" signature="6739:7221" placeholder="select runno..vd_stock_withdraw_detail_store_trans..." />
             <marker date="1447835339069" expanded="true" signature="12442:12818" placeholder="select runno..vd_oil_withdraw..." />
@@ -927,7 +1016,10 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="76" column="27" selection-start-line="76" selection-start-column="27" selection-end-line="76" selection-end-column="27" />
-          <folding />
+          <folding>
+            <element signature="n#!!doc" expanded="false" />
+            <element signature="imports" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -947,8 +1039,6 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="31" column="62" selection-start-line="31" selection-start-column="41" selection-end-line="31" selection-end-column="62" />
           <folding>
-            <element signature="e#0#20948#0" expanded="true" />
-            <element signature="imports" expanded="true" />
             <marker date="1447835339069" expanded="true" signature="1538:1900" placeholder="select runno..vd_adjust_stock_detail..." />
             <marker date="1447835339069" expanded="true" signature="6739:7221" placeholder="select runno..vd_stock_withdraw_detail_store_trans..." />
             <marker date="1447835339069" expanded="true" signature="12442:12818" placeholder="select runno..vd_oil_withdraw..." />
@@ -973,7 +1063,10 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="76" column="27" selection-start-line="76" selection-start-column="27" selection-end-line="76" selection-end-column="27" />
-          <folding />
+          <folding>
+            <element signature="n#!!doc" expanded="false" />
+            <element signature="imports" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -993,8 +1086,6 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="31" column="62" selection-start-line="31" selection-start-column="41" selection-end-line="31" selection-end-column="62" />
           <folding>
-            <element signature="e#0#20948#0" expanded="true" />
-            <element signature="imports" expanded="true" />
             <marker date="1447835339069" expanded="true" signature="1538:1900" placeholder="select runno..vd_adjust_stock_detail..." />
             <marker date="1447835339069" expanded="true" signature="6739:7221" placeholder="select runno..vd_stock_withdraw_detail_store_trans..." />
             <marker date="1447835339069" expanded="true" signature="12442:12818" placeholder="select runno..vd_oil_withdraw..." />
@@ -1019,7 +1110,10 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="25" column="30" selection-start-line="25" selection-start-column="30" selection-end-line="25" selection-end-column="30" />
-          <folding />
+          <folding>
+            <element signature="n#!!doc" expanded="false" />
+            <element signature="imports" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1027,7 +1121,10 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="25" column="30" selection-start-line="25" selection-start-column="30" selection-end-line="25" selection-end-column="30" />
-          <folding />
+          <folding>
+            <element signature="n#!!doc" expanded="false" />
+            <element signature="imports" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1035,7 +1132,10 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="25" column="30" selection-start-line="25" selection-start-column="30" selection-end-line="25" selection-end-column="30" />
-          <folding />
+          <folding>
+            <element signature="n#!!doc" expanded="false" />
+            <element signature="imports" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1043,7 +1143,10 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="25" column="30" selection-start-line="25" selection-start-column="30" selection-end-line="25" selection-end-column="30" />
-          <folding />
+          <folding>
+            <element signature="n#!!doc" expanded="false" />
+            <element signature="imports" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1051,7 +1154,10 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
+          <folding>
+            <element signature="n#!!doc" expanded="false" />
+            <element signature="imports" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1066,7 +1172,10 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
+          <folding>
+            <element signature="n#!!doc" expanded="false" />
+            <element signature="imports" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1081,7 +1190,10 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
+          <folding>
+            <element signature="n#!!doc" expanded="false" />
+            <element signature="imports" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1096,16 +1208,8 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="70" column="0" selection-start-line="70" selection-start-column="0" selection-end-line="70" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/cgc/DB/DBConnect.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.7779579">
-          <caret line="160" column="0" selection-start-line="160" selection-start-column="0" selection-end-line="160" selection-end-column="0" />
           <folding>
-            <element signature="e#0#10106#0" expanded="false" />
+            <element signature="n#!!doc" expanded="false" />
             <element signature="imports" expanded="false" />
           </folding>
         </state>
@@ -1115,7 +1219,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.5105348">
           <caret line="21" column="12" selection-start-line="21" selection-start-column="12" selection-end-line="21" selection-end-column="12" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1131,8 +1234,6 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="31" column="62" selection-start-line="31" selection-start-column="41" selection-end-line="31" selection-end-column="62" />
           <folding>
-            <element signature="e#0#20948#0" expanded="true" />
-            <element signature="imports" expanded="true" />
             <marker date="1447835339069" expanded="true" signature="1538:1900" placeholder="select runno..vd_adjust_stock_detail..." />
             <marker date="1447835339069" expanded="true" signature="6739:7221" placeholder="select runno..vd_stock_withdraw_detail_store_trans..." />
             <marker date="1447835339069" expanded="true" signature="12442:12818" placeholder="select runno..vd_oil_withdraw..." />
@@ -1142,39 +1243,45 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/cgc/engine/Process_transaction.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="37" column="66" selection-start-line="37" selection-start-column="66" selection-end-line="37" selection-end-column="66" />
-          <folding>
-            <element signature="e#0#2053#0" expanded="true" />
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/cgc/Util/System_Log.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="4" column="3" selection-start-line="4" selection-start-column="3" selection-end-line="4" selection-end-column="3" />
-          <folding>
-            <element signature="e#0#668#0" expanded="true" />
-            <element signature="imports" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/cgc/DB/Process_Stock_Balance_DB.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.63506263">
-          <caret line="86" column="63" selection-start-line="86" selection-start-column="63" selection-end-line="86" selection-end-column="63" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="73" column="61" selection-start-line="73" selection-start-column="61" selection-end-line="73" selection-end-column="61" />
           <folding>
-            <element signature="e#0#4783#0" expanded="true" />
+            <marker date="1448615632902" expanded="true" signature="1516:2080" placeholder="select part_..vt_transaction_stockmissingValue..." />
+            <marker date="1448615632902" expanded="true" signature="1573:1663" placeholder="select vp.la..vm_part_price..." />
+            <marker date="1448615632902" expanded="true" signature="1717:1807" placeholder="select vp.la..vm_part_price..." />
+            <marker date="1448615632902" expanded="true" signature="2788:3024" placeholder="insert into ..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/cgc/DB/DBConnect.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="191" column="70" selection-start-line="191" selection-start-column="70" selection-end-line="191" selection-end-column="70" />
+          <folding>
+            <element signature="e#0#10106#0" expanded="false" />
+            <element signature="imports" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/cgc/engine/Process_transaction.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="21" column="14" selection-start-line="21" selection-start-column="14" selection-end-line="21" selection-end-column="14" />
+          <folding>
+            <element signature="e#0#2053#0" expanded="true" />
             <element signature="imports" expanded="true" />
-            <marker date="1448612077082" expanded="true" signature="1516:2004" placeholder="select part_..vt_transaction_stockmissingValue..." />
-            <marker date="1448612077082" expanded="true" signature="1573:1663" placeholder="select vp.la..vm_part_price..." />
-            <marker date="1448612077082" expanded="true" signature="1717:1807" placeholder="select vp.la..vm_part_price..." />
-            <marker date="1448612077082" expanded="true" signature="2712:2914" placeholder="insert into ..." />
           </folding>
         </state>
       </provider>

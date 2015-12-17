@@ -48,10 +48,11 @@ public class Process_Stock_Balance_DB {
 
         SQL = " select part_id,part_desc,unit_name,sum(qty_num) as qty ,(select vp.last_price from vm_part_price vp where vp.part_id = vt_transaction_stock.part_id) as price_unit "
                 + ",sum(qty_num) * (select vp.last_price from vm_part_price vp where vp.part_id = vt_transaction_stock.part_id) as total_price"
+                + ",pgroup_id,pgroup_desc "
                 + " from vt_transaction_stock"
                 + SQL_where
-                + " Group By part_id,part_desc,unit_name"
-                + " Order By part_id,unit_name";
+                + " Group By pgroup_id,pgroup_desc,part_id,part_desc,unit_name"
+                + " Order By pgroup_id,part_id,unit_name";
 
         System.out.println("SQL = " + SQL);
 
@@ -68,8 +69,8 @@ public class Process_Stock_Balance_DB {
         while (rs.next()) {
 
             String SQL_Insert = "insert into t_stock_balance "
-                    + "(line_no,doc_date,part_id,part_desc,qty,price_unit,total_price,unit_name,create_date,create_by) "
-                    + "values (?,?,?,?,?,?,?,?,?,?)";
+                    + "(line_no,doc_date,part_id,part_desc,qty,price_unit,total_price,unit_name,create_date,create_by,part_group_id,part_group_name) "
+                    + "values (?,?,?,?,?,?,?,?,?,?,?,?)";
             System.out.println("SQL_Insert = " + SQL_Insert);
             p = con.prepareStatement(SQL_Insert);
             p.setInt(1, rec_cnt);
@@ -82,6 +83,8 @@ public class Process_Stock_Balance_DB {
             p.setString(8, rs.getString("unit_name"));
             p.setTimestamp(9, ts);
             p.setString(10, "System");
+            p.setString(11, rs.getString("pgroup_id"));
+            p.setString(12, rs.getString("pgroup_desc"));
             System.out.println("part_id = " + rs.getString("part_id"));
             System.out.println("part_desc = " + rs.getString("part_desc"));
             System.out.println("qty = " + rs.getString("qty"));
