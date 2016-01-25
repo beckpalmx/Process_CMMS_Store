@@ -137,12 +137,14 @@ public class Process_transactionDB {
             //+ " and to_date(format_date(doc_date),'YYYY-MM-DD') between to_date(format_date('" + date_from + "'),'YYYY-MM-DD') AND to_date(format_date('" + date_to + "'),'YYYY-MM-DD')";
             //SQL = " select runno,doc_id,line_no,doc_date,ap_date1,ap_date2,doc_type,part_id,price_unit,to_char(qty_number,'999999.99') as qty,unit_id from vd_stock_withdraw_detail_store_transaction_process "
             SQL = " select runno,doc_id,line_no,doc_date,ap_date1,ap_date2,doc_type,part_id,price_unit,to_char(qty_number,'999999.99') as qty,unit_id from vd_stock_withdraw_detail_store_trans "
-                    + " where withdraw_for = 'N' and complete_flag = 'Y' "
+                    //+ " where withdraw_for = 'N' and complete_flag = 'Y' "
+                    + " where withdraw_for = 'N' and qty_number > 0 "
                     + " and (part_id IS NOT NULL and unit_id IS NOT NULL) and to_date(format_date(doc_date),'YYYY-MM-DD') between to_date(format_date('" + date_from + "'),'YYYY-MM-DD') AND to_date(format_date('" + date_to + "'),'YYYY-MM-DD')";
 
             //SQL1 = " select count(*) from vd_stock_withdraw_detail_store_transaction_process "
             SQL1 = " select count(*) from vd_stock_withdraw_detail_store_trans "
-                    + " where withdraw_for = 'N' and complete_flag = 'Y' "
+                    //+ " where withdraw_for = 'N' and complete_flag = 'Y' "
+                    + " where withdraw_for = 'N' and qty_number > 0 "
                     + " and (part_id IS NOT NULL and unit_id IS NOT NULL) and to_date(format_date(doc_date),'YYYY-MM-DD') between to_date(format_date('" + date_from + "'),'YYYY-MM-DD') AND to_date(format_date('" + date_to + "'),'YYYY-MM-DD')";
 
             System.out.println("SQL 2 = " + SQL);
