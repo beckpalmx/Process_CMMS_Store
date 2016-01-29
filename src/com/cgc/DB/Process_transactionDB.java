@@ -381,6 +381,8 @@ public class Process_transactionDB {
         }
     }
 
+/*
+
     private void insert_error(ArrayList<DataBean_Transaction_Process> obj_AL, Connection con, PreparedStatement p) throws Exception {
 
         int i;
@@ -419,6 +421,8 @@ public class Process_transactionDB {
             obj_AL.clear();
         }
     }
+
+*/
 
     private void InsTimeStamp(String SQL_TimeStamp, Connection con, PreparedStatement p) throws Exception {
         try {
