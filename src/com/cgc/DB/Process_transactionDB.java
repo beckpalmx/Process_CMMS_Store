@@ -6,6 +6,7 @@
 package com.cgc.DB;
 
 import com.cgc.bean.DataBean_Transaction_Process;
+
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -14,15 +15,14 @@ import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import com.cgc.Util.DateUtil;
 
 /**
- *
- * @author ball
+ * @author beck
  */
 public class Process_transactionDB {
 
     /**
-     *
      * @param date_from
      * @param date_to
      * @throws Exception
@@ -86,7 +86,7 @@ public class Process_transactionDB {
                 bean.setQty((rs.getString("qty") == null || rs.getString("qty").equals("")) ? "0" : rs.getString("qty"));
 
                 //String Unit_Id = "-";
-                String Unit_Id = Find_Unit("select mpu.unit_id from vm_part_unit_main mpu where mpu.part_id = '" + rs.getString("part_id") + "'", con);
+                String Unit_Id = Find_Unit("select mpu.unit_id from vm_part mpu where mpu.part_id = '" + rs.getString("part_id") + "'", con);
 
                 bean.setUnit_id(rs.getString("unit_id") == null ? Unit_Id : rs.getString("unit_id"));
 
@@ -97,6 +97,8 @@ public class Process_transactionDB {
 
                 //System.out.println("process_id 001 part_id = " + rs.getString("part_id") + " doc_type = " + doc_type);
                 obj_AL_process_transaction.add(bean);
+                Update_LastPartMovement(con,rs.getString("part_id"),rs.getString("doc_date"));
+
                 count_loop++;
                 insert(obj_AL_process_transaction, con, p);
             }
@@ -109,7 +111,6 @@ public class Process_transactionDB {
     }
 
     /**
-     *
      * @param date_from
      * @param date_to
      * @throws Exception
@@ -199,7 +200,7 @@ public class Process_transactionDB {
                 bean.setQty((rs.getString("qty") == null || rs.getString("qty").equals("")) ? "0" : rs.getString("qty"));
 
                 //String Unit_Id = "-";
-                String Unit_Id = Find_Unit("select mpu.unit_id from vm_part_unit_main mpu where mpu.part_id = '" + rs.getString("part_id") + "'", con);
+                String Unit_Id = Find_Unit("select mpu.unit_id from vm_part mpu where mpu.part_id = '" + rs.getString("part_id") + "'", con);
                 bean.setUnit_id(rs.getString("unit_id") == null ? Unit_Id : rs.getString("unit_id"));
 
                 //bean.setUnit_id(rs.getString("unit_id") == null ? "-" : rs.getString("unit_id"));
@@ -208,6 +209,8 @@ public class Process_transactionDB {
 
                 //System.out.println("process_id 002 part_id = " + rs.getString("part_id") + " doc_type = " + doc_type);
                 obj_AL_process_transaction.add(bean);
+                Update_LastPartMovement(con,rs.getString("part_id"),rs.getString("doc_date"));
+
                 if (rs.getString("part_id") == null || rs.getString("doc_date") == null || rs.getString("doc_type") == null || rs.getString("unit_id") == null) {
                     //insert_error(obj_AL_process_transaction, con, p);
                     System.out.println("Error Can't Insert Data");
@@ -226,7 +229,6 @@ public class Process_transactionDB {
     }
 
     /**
-     *
      * @param date_from
      * @param date_to
      * @throws Exception
@@ -281,7 +283,7 @@ public class Process_transactionDB {
                 bean.setQty((rs.getString("qty") == null || rs.getString("qty").equals("")) ? "0" : rs.getString("qty"));
 
                 //String Unit_Id = "-";
-                String Unit_Id = Find_Unit("select mpu.unit_id from vm_part_unit_main mpu where mpu.part_id = '" + rs.getString("part_id") + "'", con);
+                String Unit_Id = Find_Unit("select mpu.unit_id from vm_part mpu where mpu.part_id = '" + rs.getString("part_id") + "'", con);
                 bean.setUnit_id(rs.getString("unit_id_use") == null ? Unit_Id : rs.getString("unit_id_use"));
 
                 //bean.setUnit_id(rs.getString("unit_id") == null ? "-" : rs.getString("unit_id"));
@@ -290,6 +292,8 @@ public class Process_transactionDB {
 
                 //System.out.println("process_id 002 part_id = " + rs.getString("part_id") + " doc_type = " + doc_type);
                 obj_AL_process_transaction.add(bean);
+                Update_LastPartMovement(con,rs.getString("part_id"),rs.getString("doc_date"));
+
                 if (rs.getString("part_id") == null || rs.getString("doc_date") == null || rs.getString("unit_id_use") == null) {
                     //insert_error(obj_AL_process_transaction, con, p);
                     System.out.println("Error Can't Insert Data");
@@ -380,9 +384,7 @@ public class Process_transactionDB {
             obj_AL.clear();
         }
     }
-
 /*
-
     private void insert_error(ArrayList<DataBean_Transaction_Process> obj_AL, Connection con, PreparedStatement p) throws Exception {
 
         int i;
@@ -444,4 +446,56 @@ public class Process_transactionDB {
         } finally {
         }
     }
+
+    private void Update_LastPartMovement(Connection con, String part_id, String doc_date) throws Exception {
+
+        try (Connection con2 = new DBConnect().openConnection_CMMS_Y()) {
+            ResultSet rs2;
+            PreparedStatement p;
+            String check = "", set_last_movement = "", SQL_Last_Movement = "";
+            SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+
+            String SQL_MPart = " select runno,part_id,last_movement from m_part "
+                    + " where delete_flag <> 'Y' "
+                    + " and part_id = '" + part_id + "'";
+
+            rs2 = con2.createStatement().executeQuery(SQL_MPart);
+            while (rs2.next()) {
+
+                if (rs2.getString("last_movement").equals("") || rs2.getString("last_movement") == null || rs2.getString("last_movement").equals("-")) {
+                    check = "System-Last 1";
+                    set_last_movement = doc_date;
+                } else {
+
+                    Date date1 = sdf.parse(DateUtil.ThaiDate_To_EngDate(doc_date));
+                    Date date2 = sdf.parse(DateUtil.ThaiDate_To_EngDate(rs2.getString("last_movement")));
+
+                    if (date1.compareTo(date2) >= 0) {
+                        //System.out.println("Date1 is after or equals Date2");
+                        set_last_movement = doc_date;
+                        check = "System-Last 2";
+                    } else if (date1.compareTo(date2) < 0) {
+                        //System.out.println("Date1 is before Date2");
+                        set_last_movement = rs2.getString("last_movement");
+                        check = "System-Last 3";
+                    }
+                }
+                //System.out.println("Current Date = " + DateUtil.Return_Date_Now_full());
+                SQL_Last_Movement = " update m_part set last_movement = '" + set_last_movement + "'"
+                        //+ " ,update_by = '" + check + "'"
+                        //+ " ,update_date = '" + new Timestamp(new java.util.Date().getTime()) + "'"
+                        + " where runno = " + rs2.getInt("runno");
+
+                System.out.println("SQL_Last_Movement = " + SQL_Last_Movement);
+
+                p = con.prepareStatement(SQL_Last_Movement);
+                p.executeUpdate();
+                p.clearParameters();
+
+                System.out.println("Final Update_LastPartMovement");
+            }
+        }
+    }
+
+
 }

@@ -31,7 +31,7 @@ public class DateUtil {
         return format.format(date);
     }
 
-    public String ThaiDate_To_EngDate(String date_input) {
+    public static String ThaiDate_To_EngDate(String date_input) {
         String date_return = "";
         date_return = Integer.toString(Integer.parseInt(date_input.substring(6, 10)) - 543) + "-" + date_input.substring(3, 5) + "-" + date_input.substring(0, 2);
         //System.out.println("date_return = " + date_return);   
