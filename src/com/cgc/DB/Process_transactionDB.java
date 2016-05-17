@@ -45,9 +45,9 @@ public class Process_transactionDB {
 
             delete(SQL_DEL, con, p);
 
-            SQL = " select runno,doc_id,doc_date,doc_type,part_id,price_unit,qty,unit_id,wh_id,location_id from vd_adjust_stock_detail "
+            SQL = " select runno,doc_id,doc_type,part_id,price_unit,qty,unit_id,wh_id,location_id,doc_date_chk as doc_date from vd_adjust_stock_detail "
                     + " where doc_type in ('R','W','B','D') "
-                    + " and to_date(format_date(doc_date),'YYYY-MM-DD') between to_date(format_date('" + date_from + "'),'YYYY-MM-DD') AND to_date(format_date('" + date_to + "'),'YYYY-MM-DD')";
+                    + " and to_date(format_date(doc_date_chk),'YYYY-MM-DD') between to_date(format_date('" + date_from + "'),'YYYY-MM-DD') AND to_date(format_date('" + date_to + "'),'YYYY-MM-DD')";
 
             SQL1 = " select count(*) from vd_adjust_stock_detail "
                     + " where doc_type in ('R','W','B','D') "
